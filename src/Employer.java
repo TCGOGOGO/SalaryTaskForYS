@@ -1,9 +1,6 @@
-import java.io.File;
-import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
-import java.util.HashSet;
 import java.util.Scanner;
 
 /**
@@ -13,7 +10,7 @@ public class Employer {
 
     public static Scanner in = new Scanner(System.in);
 
-    public static void addEmployee() throws IOException {
+    public void addEmployee() throws IOException {
         String name;
         int jobNum;
         int salary;
@@ -39,7 +36,7 @@ public class Employer {
         fileHelper.writeToFile(content.toString());
     }
 
-    public static void deleteEmployee() {
+    public void deleteEmployee() {
         int jobNum;
         System.out.print("输入要开除的员工工号: ");
         jobNum = in.nextInt();
@@ -52,7 +49,7 @@ public class Employer {
         }
     }
 
-    public static void querySalary() throws IOException {
+    public void querySalary() throws IOException {
         int jobNum;
         System.out.print("输入要查询的员工工号: ");
         jobNum = in.nextInt();
@@ -64,7 +61,7 @@ public class Employer {
         }
     }
 
-    public static void modifySalary() throws IOException {
+    public void modifySalary() throws IOException {
         int jobNum;
         System.out.print("输入要修改的员工工号: ");
         jobNum = in.nextInt();
@@ -95,34 +92,6 @@ public class Employer {
         }
         else {
             System.out.println("该员工不存在");
-        }
-    }
-
-    public static void main(String[] agrs) throws IOException {
-        int tp;
-        while(true) {
-            System.out.println("1. 添加员工");
-            System.out.println("2. 辞职员工");
-            System.out.println("3. 查询薪水");
-            System.out.println("4. 修改薪水");
-            System.out.println("5. 离开");
-            tp = in.nextInt();
-            switch (tp) {
-                case 1:
-                    addEmployee();
-                    break;
-                case 2:
-                    deleteEmployee();
-                    break;
-                case 3:
-                    querySalary();
-                    break;
-                case 4:
-                    modifySalary();
-                    break;
-                default:
-                    return;
-            }
         }
     }
 }
